@@ -1,4 +1,4 @@
-import { INSTALLMENT_MODE, INTEREST_MODE } from './constants'
+import { INSTALLMENT_MODE, INTEREST_MODE } from '../constants'
 
 // ACTIONS
 
