@@ -1,2 +1,6 @@
+export const DEPOSIT = 'deposit'
 export const INSTALLMENT = 'installment'
 export const INTEREST = 'interest'
+export const LENGTH = 'length'
+export const PRICE = 'price'
+//export const TOTAL = 'total'
