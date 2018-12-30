@@ -1,24 +1,15 @@
 import React from 'react'
-import { connect } from 'react-redux'
 
 import Calculator from './Calculator'
-import { actionCreators } from '../state'
+import ModeSwitcher from './ModeSwitcher'
 
-function App(props) {
-  const { switchToInstallmentMode, switchToInterestMode } = props
-
+function App() {
   return (
     <div className="App">
-      <nav>
-        <button onClick={switchToInterestMode}>Juros</button>
-        <button onClick={switchToInstallmentMode}>Parcela</button>
-      </nav>
+      <ModeSwitcher />
       <Calculator />
     </div>
   )
 }
 
-export default connect(
-  null,
-  actionCreators
-)(App)
+export default App
