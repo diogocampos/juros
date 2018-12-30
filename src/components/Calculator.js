@@ -1,9 +1,14 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-export function InstallmentCalculator() {
-  return <p>[calculadora de parcela]</p>
+
+function Calculator(props) {
+  const { mode } = props
+  return <p>[{mode} calculator]</p>
 }
 
-export function InterestCalculator() {
-  return <p>[calculadora de juros]</p>
-}
+const mapStateToProps = state => ({
+  mode: state.mode,
+})
+
+export default connect(mapStateToProps)(Calculator)

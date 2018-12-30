@@ -1,18 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { InstallmentCalculator, InterestCalculator } from './Calculator'
-import { INSTALLMENT, INTEREST } from '../constants'
+import Calculator from './Calculator'
 import { actions } from '../state'
 
-const calculators = {
-  [INSTALLMENT]: InstallmentCalculator,
-  [INTEREST]: InterestCalculator,
-}
-
 function App(props) {
-  const { mode, switchToInstallmentMode, switchToInterestMode } = props
-  const Calculator = calculators[mode]
+  const { switchToInstallmentMode, switchToInterestMode } = props
 
   return (
     <div className="App">
@@ -25,11 +18,7 @@ function App(props) {
   )
 }
 
-const mapStateToProps = state => ({
-  mode: state.mode,
-})
-
 export default connect(
-  mapStateToProps,
+  null,
   actions
 )(App)
