@@ -2,12 +2,12 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { InstallmentCalculator, InterestCalculator } from './Calculator'
-import { INSTALLMENT_MODE, INTEREST_MODE } from '../constants'
+import { INSTALLMENT, INTEREST } from '../constants'
 import { actions } from '../state'
 
 const calculators = {
-  [INSTALLMENT_MODE]: InstallmentCalculator,
-  [INTEREST_MODE]: InterestCalculator,
+  [INSTALLMENT]: InstallmentCalculator,
+  [INTEREST]: InterestCalculator,
 }
 
 function App(props) {

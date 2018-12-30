@@ -1,2 +1,2 @@
-export const INSTALLMENT_MODE = 'installment'
-export const INTEREST_MODE = 'interest'
+export const INSTALLMENT = 'installment'
+export const INTEREST = 'interest'
