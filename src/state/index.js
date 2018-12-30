@@ -5,7 +5,7 @@ import { combineReducers, createStore } from 'redux'
 import mode, * as modeActions from './mode'
 import values, * as valuesActions from './values'
 
-export const actions = {
+export const actionCreators = {
   ...modeActions,
   ...valuesActions,
 }

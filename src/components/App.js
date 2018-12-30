@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import Calculator from './Calculator'
-import { actions } from '../state'
+import { actionCreators } from '../state'
 
 function App(props) {
   const { switchToInstallmentMode, switchToInterestMode } = props
@@ -20,5 +20,5 @@ function App(props) {
 
 export default connect(
   null,
-  actions
+  actionCreators
 )(App)
