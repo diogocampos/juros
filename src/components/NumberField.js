@@ -5,7 +5,7 @@ import { formatNumber, parseDigits } from './format'
 class NumberField extends React.Component {
   handleChange = event => {
     const value = parseDigits(event.target.value, this.props.decimals)
-    this.props.onChange({ target: { name: this.props.name, value } })
+    this.props.onChange(this.props.name, value)
   }
 
   render() {

@@ -6,11 +6,6 @@ import { fieldNamesByMode, fieldProps } from '../constants'
 import { actions } from '../state'
 
 class Fields extends React.Component {
-  handleChange = event => {
-    const { name, value } = event.target
-    this.props.onChange(name, value)
-  }
-
   handleReset = event => {
     event.preventDefault()
     this.props.onReset()
@@ -22,7 +17,7 @@ class Fields extends React.Component {
   }
 
   render() {
-    const { mode, values } = this.props
+    const { mode, values, onChange } = this.props
     const fieldNames = fieldNamesByMode[mode]
     return (
       <form
@@ -36,7 +31,7 @@ class Fields extends React.Component {
             key={name}
             name={name}
             value={values[name]}
-            onChange={this.handleChange}
+            onChange={onChange}
             {...fieldProps[name]}
           />
         ))}
