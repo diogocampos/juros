@@ -8,7 +8,7 @@ import { actions } from '../state'
 class Fields extends React.Component {
   handleChange = event => {
     const { name, value } = event.target
-    this.props.onChange(name, +value)
+    this.props.onChange(name, value)
   }
 
   handleReset = event => {
@@ -29,6 +29,7 @@ class Fields extends React.Component {
         className="Fields"
         onReset={this.handleReset}
         onSubmit={this.handleSubmit}
+        noValidate
       >
         {fieldNames.map(name => (
           <NumberField
