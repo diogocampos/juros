@@ -22,7 +22,9 @@ export default function values(state = defaultState, action) {
       return defaultState
 
     case SET_VALUE:
-      return { ...state, [action.name]: action.value }
+      const { name, value } = action
+      if (Object.keys(defaultState).indexOf(name) < 0) return state
+      return { ...state, [name]: value || defaultState[name] }
 
     default:
       return state
