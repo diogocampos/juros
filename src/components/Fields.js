@@ -11,11 +11,25 @@ class Fields extends React.Component {
     this.props.onChange(name, +value)
   }
 
+  handleReset = event => {
+    event.preventDefault()
+    this.props.onReset()
+  }
+
+  handleSubmit = event => {
+    event.preventDefault()
+    this.props.onSubmit()
+  }
+
   render() {
-    const { mode, values, onClear, onCalculate } = this.props
+    const { mode, values } = this.props
     const fieldNames = fieldNamesByMode[mode]
     return (
-      <form className="Fields">
+      <form
+        className="Fields"
+        onReset={this.handleReset}
+        onSubmit={this.handleSubmit}
+      >
         {fieldNames.map(name => (
           <NumberField
             key={name}
@@ -25,14 +39,10 @@ class Fields extends React.Component {
             {...fieldProps[name]}
           />
         ))}
-        <button className="Fields-button" type="button" onClick={onClear}>
+        <button className="Fields-button" type="reset">
           Limpar
         </button>
-        <button
-          className="Fields-button primary"
-          type="button"
-          onClick={onCalculate}
-        >
+        <button className="Fields-button primary" type="submit">
           Calcular
         </button>
       </form>
@@ -47,8 +57,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onChange: (name, value) => dispatch(actions.setValue(name, value)),
-  onClear: () => dispatch(actions.clearValues()),
-  onCalculate: () => dispatch(actions.calculateResults()),
+  onReset: () => dispatch(actions.clearValues()),
+  onSubmit: () => dispatch(actions.calculateResults()),
 })
 
 export default connect(
