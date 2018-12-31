@@ -20,12 +20,16 @@ function Calculator(props) {
   const { mode } = props
   const fields = fieldsByMode[mode]
   return (
-    <form>
+    <form className="Calculator">
       {fields.map(fieldProps => (
         <NumberField key={fieldProps.name} {...fieldProps} />
       ))}
-      <button type="button">Limpar</button>
-      <button type="button">Calcular</button>
+      <button className="Calculator-button" type="button">
+        Limpar
+      </button>
+      <button className="Calculator-button primary" type="button">
+        Calcular
+      </button>
     </form>
   )
 }
