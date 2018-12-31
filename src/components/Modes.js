@@ -10,17 +10,14 @@ const modes = [
   { mode: INSTALLMENT, label: 'Parcela' },
 ]
 
-function ModeSwitcher(props) {
+function Modes(props) {
   const { mode: currentMode, onChange } = props
   return (
-    <div className="ModeSwitcher">
+    <div className="Modes">
       {modes.map(({ mode, label }) => (
         <button
           key={mode}
-          className={classNames(
-            'ModeSwitcher-mode',
-            mode === currentMode && 'active'
-          )}
+          className={classNames('Modes-mode', mode === currentMode && 'active')}
           onClick={() => onChange(mode)}
         >
           {label}
@@ -41,4 +38,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ModeSwitcher)
+)(Modes)
