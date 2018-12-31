@@ -29,8 +29,8 @@ export function parseDigits(textValue, decimals = 2) {
 }
 
 function padStart(string, targetLength, padString) {
-  while (string.length < targetLength) {
-    string = padString + string
+  for (var padding = ''; padding.length + string.length < targetLength; ) {
+    padding += padString
   }
-  return string.slice(string.length - targetLength)
+  return padding.slice(0, targetLength - string.length) + string
 }
