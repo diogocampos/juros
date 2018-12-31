@@ -2,22 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import NumberField from './NumberField'
-import * as k from '../constants'
+import { fieldNamesByMode, fieldProps } from '../constants'
 import { actions } from '../state'
-
-const fieldNamesByMode = {
-  [k.INSTALLMENT]: [k.PRICE, k.DEPOSIT, k.LENGTH, k.INTEREST],
-  [k.INTEREST]: [k.PRICE, k.DEPOSIT, k.LENGTH, k.INSTALLMENT],
-}
-
-const fieldProps = {
-  [k.DEPOSIT]: { label: 'Entrada' },
-  [k.INSTALLMENT]: { label: 'Valor da parcela' },
-  [k.INTEREST]: { label: 'Taxa de juros' },
-  [k.LENGTH]: { label: 'Número de parcelas' },
-  [k.PRICE]: { label: 'Valor à vista' },
-  [k.TOTAL]: { label: 'Total a prazo' },
-}
 
 class Fields extends React.Component {
   handleChange = event => {
