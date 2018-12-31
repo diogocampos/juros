@@ -3,9 +3,9 @@ import React from 'react'
 function NumberField(props) {
   const { label } = props
   return (
-    <label>
+    <label className="NumberField">
       {label}
-      <input type="text" pattern="[0-9]*" />
+      <input className="NumberField-input" type="text" pattern="[0-9]*" />
     </label>
   )
 }
