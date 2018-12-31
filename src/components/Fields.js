@@ -19,7 +19,7 @@ const fieldProps = {
   [k.TOTAL]: { label: 'Total a prazo' },
 }
 
-class Calculator extends React.Component {
+class Fields extends React.Component {
   handleChange = event => {
     const { name, value } = event.target
     this.props.onChange(name, value)
@@ -29,7 +29,7 @@ class Calculator extends React.Component {
     const { mode, values, onClear, onCalculate } = this.props
     const fieldNames = fieldNamesByMode[mode]
     return (
-      <form className="Calculator">
+      <form className="Fields">
         {fieldNames.map(name => (
           <NumberField
             key={name}
@@ -39,11 +39,11 @@ class Calculator extends React.Component {
             {...fieldProps[name]}
           />
         ))}
-        <button className="Calculator-button" type="button" onClick={onClear}>
+        <button className="Fields-button" type="button" onClick={onClear}>
           Limpar
         </button>
         <button
-          className="Calculator-button primary"
+          className="Fields-button primary"
           type="button"
           onClick={onCalculate}
         >
@@ -68,4 +68,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Calculator)
+)(Fields)
