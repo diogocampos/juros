@@ -2,6 +2,7 @@ import classNames from 'classnames'
 import React from 'react'
 import { connect } from 'react-redux'
 
+import './Modes.css'
 import { INSTALLMENT, INTEREST } from '../constants'
 import { actions } from '../state'
 

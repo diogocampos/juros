@@ -1,5 +1,6 @@
 import React from 'react'
 
+import './App.css'
 import Fields from './Fields'
 import Modes from './Modes'
 import Results from './Results'

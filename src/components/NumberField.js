@@ -1,5 +1,6 @@
 import React from 'react'
 
+import './NumberField.css'
 import { formatNumber, parseDigits } from './format'
 
 const MAX_DIGITS = 16
@@ -35,7 +36,7 @@ class NumberField extends React.Component {
     const { label, name, value, ...format } = this.props
     return (
       <label className="NumberField">
-        {label}
+        <span className="NumberField-label">{label}</span>
         <input
           className="NumberField-input"
           type="text"

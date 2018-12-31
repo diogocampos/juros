@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import './Fields.css'
 import NumberField from './NumberField'
 import { fieldNamesByMode, fieldProps } from '../constants'
 import { actions } from '../state'
@@ -35,12 +36,14 @@ class Fields extends React.Component {
             {...fieldProps[name]}
           />
         ))}
-        <button className="Fields-button" type="reset">
-          Limpar
-        </button>
-        <button className="Fields-button primary" type="submit">
-          Calcular
-        </button>
+        <div className="Fields-buttons">
+          <button className="Fields-button" type="reset">
+            Limpar
+          </button>
+          <button className="Fields-button primary" type="submit">
+            Calcular
+          </button>
+        </div>
       </form>
     )
   }
