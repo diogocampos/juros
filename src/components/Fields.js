@@ -8,7 +8,7 @@ import { actions } from '../state'
 class Fields extends React.Component {
   handleChange = event => {
     const { name, value } = event.target
-    this.props.onChange(name, value)
+    this.props.onChange(name, +value)
   }
 
   render() {
