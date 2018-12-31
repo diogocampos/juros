@@ -2,27 +2,29 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import NumberField from './NumberField'
-import { DEPOSIT, INSTALLMENT, INTEREST, LENGTH, PRICE } from '../constants'
+import * as k from '../constants'
 
-// NumberField props
-const deposit = { name: DEPOSIT, label: 'Entrada' }
-const installment = { name: INSTALLMENT, label: 'Valor da parcela' }
-const interest = { name: INTEREST, label: 'Taxa de juros' }
-const length = { name: LENGTH, label: 'Número de parcelas' }
-const price = { name: PRICE, label: 'Valor à vista' }
+const fieldNamesByMode = {
+  [k.INSTALLMENT]: [k.PRICE, k.DEPOSIT, k.LENGTH, k.INTEREST],
+  [k.INTEREST]: [k.PRICE, k.DEPOSIT, k.LENGTH, k.INSTALLMENT],
+}
 
-const fieldsByMode = {
-  [INSTALLMENT]: [price, deposit, length, interest],
-  [INTEREST]: [price, deposit, length, installment],
+const fieldProps = {
+  [k.DEPOSIT]: { label: 'Entrada' },
+  [k.INSTALLMENT]: { label: 'Valor da parcela' },
+  [k.INTEREST]: { label: 'Taxa de juros' },
+  [k.LENGTH]: { label: 'Número de parcelas' },
+  [k.PRICE]: { label: 'Valor à vista' },
+  [k.TOTAL]: { label: 'Total a prazo' },
 }
 
 function Calculator(props) {
   const { mode } = props
-  const fields = fieldsByMode[mode]
+  const fieldNames = fieldNamesByMode[mode]
   return (
     <form className="Calculator">
-      {fields.map(fieldProps => (
-        <NumberField key={fieldProps.name} {...fieldProps} />
+      {fieldNames.map(name => (
+        <NumberField key={name} name={name} {...fieldProps[name]} />
       ))}
       <button className="Calculator-button" type="button">
         Limpar
