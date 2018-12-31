@@ -5,22 +5,27 @@ import { connect } from 'react-redux'
 import { INSTALLMENT, INTEREST } from '../constants'
 import { actionCreators } from '../state'
 
+const modes = [
+  { mode: INTEREST, label: 'Juros' },
+  { mode: INSTALLMENT, label: 'Parcela' },
+]
+
 function ModeSwitcher(props) {
-  const { mode, switchToInstallmentMode, switchToInterestMode } = props
+  const { mode: currentMode, setMode } = props
   return (
     <div className="ModeSwitcher">
-      <button
-        className={classNames('mode', mode === INTEREST && 'active')}
-        onClick={switchToInterestMode}
-      >
-        Juros
-      </button>
-      <button
-        className={classNames('mode', mode === INSTALLMENT && 'active')}
-        onClick={switchToInstallmentMode}
-      >
-        Parcela
-      </button>
+      {modes.map(({ mode, label }) => (
+        <button
+          key={mode}
+          className={classNames(
+            'ModeSwitcher-mode',
+            mode === currentMode && 'active'
+          )}
+          onClick={() => setMode(mode)}
+        >
+          {label}
+        </button>
+      ))}
     </div>
   )
 }
