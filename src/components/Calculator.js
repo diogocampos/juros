@@ -18,22 +18,24 @@ const fieldProps = {
   [k.TOTAL]: { label: 'Total a prazo' },
 }
 
-function Calculator(props) {
-  const { mode } = props
-  const fieldNames = fieldNamesByMode[mode]
-  return (
-    <form className="Calculator">
-      {fieldNames.map(name => (
-        <NumberField key={name} name={name} {...fieldProps[name]} />
-      ))}
-      <button className="Calculator-button" type="button">
-        Limpar
-      </button>
-      <button className="Calculator-button primary" type="button">
-        Calcular
-      </button>
-    </form>
-  )
+class Calculator extends React.Component {
+  render() {
+    const { mode } = this.props
+    const fieldNames = fieldNamesByMode[mode]
+    return (
+      <form className="Calculator">
+        {fieldNames.map(name => (
+          <NumberField key={name} name={name} {...fieldProps[name]} />
+        ))}
+        <button className="Calculator-button" type="button">
+          Limpar
+        </button>
+        <button className="Calculator-button primary" type="button">
+          Calcular
+        </button>
+      </form>
+    )
+  }
 }
 
 const mapStateToProps = state => ({
