@@ -1,10 +1,9 @@
+import { SET_MODE } from './actionTypes'
 import { INSTALLMENT, INTEREST } from '../constants'
 
 const modes = [INSTALLMENT, INTEREST]
 
 // ACTIONS
-
-const SET_MODE = 'mode/set-mode'
 
 export const setMode = mode => ({ type: SET_MODE, mode })
 

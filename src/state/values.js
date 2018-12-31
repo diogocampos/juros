@@ -1,9 +1,7 @@
+import { CLEAR_VALUES, SET_VALUE } from './actionTypes'
 import { DEPOSIT, INSTALLMENT, INTEREST, LENGTH, PRICE } from '../constants'
 
 // ACTIONS
-
-const CLEAR_VALUES = 'values/clear-values'
-const SET_VALUE = 'values/set-value'
 
 export const clearValues = () => ({ type: CLEAR_VALUES })
 export const setValue = (name, value) => ({ type: SET_VALUE, name, value })
