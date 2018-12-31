@@ -39,7 +39,8 @@ class NumberField extends React.Component {
         <input
           className="NumberField-input"
           type="text"
-          pattern="[0-9]*"
+          pattern="[0-9]*" // Show numeric keyboard on iOS
+          inputMode="decimal" // Show numeric keyboard on Android
           placeholder={formatNumber(0, format)}
           name={name}
           value={value ? formatNumber(value, format) : ''}
