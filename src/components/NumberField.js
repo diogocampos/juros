@@ -18,6 +18,11 @@ class NumberField extends React.Component {
     }, 0)
   }
 
+  handleKeyDown = event => {
+    // Ignore arrow keys, Home/End, Page Up/Down
+    if (33 <= event.keyCode && event.keyCode <= 40) event.preventDefault()
+  }
+
   render() {
     const { label, name, value, ...format } = this.props
     return (
@@ -33,6 +38,7 @@ class NumberField extends React.Component {
           onChange={this.handleChange}
           onClick={this.handleFocus}
           onFocus={this.handleFocus}
+          onKeyDown={this.handleKeyDown}
           ref={this.inputRef}
         />
       </label>
