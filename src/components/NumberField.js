@@ -2,11 +2,16 @@ import React from 'react'
 
 import { formatNumber, parseDigits } from './format'
 
+const MAX_DIGITS = 16
+
 class NumberField extends React.Component {
   inputRef = React.createRef()
 
   handleChange = event => {
-    const value = parseDigits(event.target.value, this.props.decimals)
+    const digits = event.target.value.replace(/[^\d]/g, '')
+    if (digits.length > MAX_DIGITS) return
+
+    const value = parseDigits(digits, this.props.decimals)
     this.props.onChange(this.props.name, value)
   }
 

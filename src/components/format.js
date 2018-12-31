@@ -21,7 +21,7 @@ export function formatNumber(
 }
 
 export function parseDigits(textValue, decimals = 2) {
-  let digits = textValue.replace(/[^\d]+/g, '')
+  let digits = textValue.replace(/[^\d]/g, '')
   if (digits.length < decimals) digits = padStart(digits, decimals, '0')
 
   const cut = digits.length - decimals
