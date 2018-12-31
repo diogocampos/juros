@@ -3,7 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { INSTALLMENT, INTEREST } from '../constants'
-import { actionCreators } from '../state'
+import { actions } from '../state'
 
 const modes = [
   { mode: INTEREST, label: 'Juros' },
@@ -11,7 +11,7 @@ const modes = [
 ]
 
 function ModeSwitcher(props) {
-  const { mode: currentMode, setMode } = props
+  const { mode: currentMode, onChange } = props
   return (
     <div className="ModeSwitcher">
       {modes.map(({ mode, label }) => (
@@ -21,7 +21,7 @@ function ModeSwitcher(props) {
             'ModeSwitcher-mode',
             mode === currentMode && 'active'
           )}
-          onClick={() => setMode(mode)}
+          onClick={() => onChange(mode)}
         >
           {label}
         </button>
@@ -34,7 +34,11 @@ const mapStateToProps = state => ({
   mode: state.mode,
 })
 
+const mapDispatchToProps = dispatch => ({
+  onChange: mode => dispatch(actions.setMode(mode)),
+})
+
 export default connect(
   mapStateToProps,
-  actionCreators
+  mapDispatchToProps
 )(ModeSwitcher)

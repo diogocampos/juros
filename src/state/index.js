@@ -7,7 +7,7 @@ import mode, * as modeActions from './mode'
 import values, * as valuesActions from './values'
 import results, * as resultsActions from './results'
 
-export const actionCreators = {
+export const actions = {
   ...modeActions,
   ...valuesActions,
   ...resultsActions,

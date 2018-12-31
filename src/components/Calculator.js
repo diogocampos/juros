@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import NumberField from './NumberField'
 import * as k from '../constants'
-import { actionCreators } from '../state'
+import { actions } from '../state'
 
 const fieldNamesByMode = {
   [k.INSTALLMENT]: [k.PRICE, k.DEPOSIT, k.LENGTH, k.INTEREST],
@@ -22,11 +22,11 @@ const fieldProps = {
 class Calculator extends React.Component {
   handleChange = event => {
     const { name, value } = event.target
-    this.props.setValue(name, value)
+    this.props.onChange(name, value)
   }
 
   render() {
-    const { mode, values, clearValues, calculateResults } = this.props
+    const { mode, values, onClear, onCalculate } = this.props
     const fieldNames = fieldNamesByMode[mode]
     return (
       <form className="Calculator">
@@ -39,17 +39,13 @@ class Calculator extends React.Component {
             {...fieldProps[name]}
           />
         ))}
-        <button
-          className="Calculator-button"
-          type="button"
-          onClick={clearValues}
-        >
+        <button className="Calculator-button" type="button" onClick={onClear}>
           Limpar
         </button>
         <button
           className="Calculator-button primary"
           type="button"
-          onClick={calculateResults}
+          onClick={onCalculate}
         >
           Calcular
         </button>
@@ -63,7 +59,13 @@ const mapStateToProps = state => ({
   values: state.values,
 })
 
+const mapDispatchToProps = dispatch => ({
+  onChange: (name, value) => dispatch(actions.setValue(name, value)),
+  onClear: () => dispatch(actions.clearValues()),
+  onCalculate: () => dispatch(actions.calculateResults()),
+})
+
 export default connect(
   mapStateToProps,
-  actionCreators
+  mapDispatchToProps
 )(Calculator)
