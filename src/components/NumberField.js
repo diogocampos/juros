@@ -21,6 +21,9 @@ class NumberField extends React.Component {
   handleKeyDown = event => {
     // Ignore arrow keys, Home/End, Page Up/Down
     if (33 <= event.keyCode && event.keyCode <= 40) event.preventDefault()
+
+    // Escape key clears the field
+    if (event.keyCode === 27) this.props.onChange(this.props.name)
   }
 
   render() {
