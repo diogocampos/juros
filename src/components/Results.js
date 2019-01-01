@@ -1,22 +1,43 @@
+import classNames from 'classnames'
 import React from 'react'
 import { connect } from 'react-redux'
 
+import './Results.css'
+import { formatNumber } from './format'
 import { fieldProps } from '../constants'
 
 function Results(props) {
   const { results } = props
   if (!results) return null
 
-  return results !== 'error' ? (
-    <ul>
-      {Object.keys(results).map(name => (
-        <li key={name}>
-          {fieldProps[name].label}: {results[name]}
-        </li>
-      ))}
-    </ul>
-  ) : (
-    <p>Erro: Verifique os valores preenchidos.</p>
+  return (
+    <div className={classNames('Results', results === 'error' && 'error')}>
+      {results !== 'error' ? (
+        Object.keys(results).map(name => (
+          <Result
+            key={name}
+            {...fieldProps[name]}
+            value={formatNumber(results[name], fieldProps[name].decimals)}
+          />
+        ))
+      ) : (
+        <Result label="Erro" value="Verifique os valores preenchidos." />
+      )}
+    </div>
+  )
+}
+
+function Result(props) {
+  const { label, prefix, value, suffix } = props
+  return (
+    <div className="Results-result">
+      <h3 className="Results-label">{label}</h3>
+      <p className="Results-value">
+        {prefix && <span className="Results-unit">{prefix}</span>}
+        {value}
+        {suffix && <span className="Results-unit">{suffix}</span>}
+      </p>
+    </div>
   )
 }
 
