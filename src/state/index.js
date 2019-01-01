@@ -13,13 +13,35 @@ export const actions = {
   ...resultsActions,
 }
 
-const reducer = combineReducers({
+const rootReducer = combineReducers({
   mode,
   values,
   results,
 })
 
+function reducer(state, action) {
+  const newState = rootReducer(state, action)
+  if (newState !== state) saveState(newState)
+  return newState
+}
+
 export function wrap(component) {
-  const store = createStore(reducer, {}, applyMiddleware(thunk))
+  const initialState = loadState() || {}
+  const store = createStore(reducer, initialState, applyMiddleware(thunk))
   return <Provider store={store}>{component}</Provider>
 }
+
+// Storage
+
+const STATE = 'state'
+
+function saveState(state) {
+  localStorage.setItem(STATE, JSON.stringify(state))
+}
+
+function loadState() {
+  try {
+    return JSON.parse(localStorage.getItem(STATE) || '')
+  } catch {}
+}
+
