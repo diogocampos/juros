@@ -19,7 +19,7 @@ function Modes(props) {
         <button
           key={mode}
           className={classNames('Modes-mode', mode === currentMode && 'active')}
-          onClick={() => onChange(mode)}
+          onClick={() => mode !== currentMode && onChange(mode)}
         >
           {label}
         </button>

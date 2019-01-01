@@ -1,4 +1,4 @@
-import { CLEAR_VALUES, SET_RESULTS } from './actionTypes'
+import { CLEAR_VALUES, SET_MODE, SET_RESULTS, SET_VALUE } from './actionTypes'
 import calculate from './calculate'
 
 // ACTIONS
@@ -25,6 +25,8 @@ export default function results(state = defaultState, action) {
       return action.results
 
     case CLEAR_VALUES:
+    case SET_MODE:
+    case SET_VALUE:
       return defaultState
 
     default:
