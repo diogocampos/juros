@@ -26,3 +26,7 @@ button,
 input {
   color: inherit;
 }
+
+input[type='text'] {
+  -webkit-appearance: none; /* remove default inset shadow on iOS */
+}
