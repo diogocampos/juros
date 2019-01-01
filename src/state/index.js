@@ -35,9 +35,9 @@ export function wrap(component) {
 
 const STATE = 'state'
 
-function saveState(state) {
+const saveState = debounce(state => {
   localStorage.setItem(STATE, JSON.stringify(state))
-}
+}, 1000)
 
 function loadState() {
   try {
@@ -45,3 +45,15 @@ function loadState() {
   } catch {}
 }
 
+// Helpers
+
+function debounce(fn, delay) {
+  let timeout = null
+  return (...args) => {
+    if (timeout) clearTimeout(timeout)
+    timeout = setTimeout(() => {
+      fn(...args)
+      timeout = null
+    }, delay)
+  }
+}
