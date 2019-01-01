@@ -10,21 +10,15 @@ export default function calculate(mode, values) {
   switch (mode) {
     case k.INSTALLMENT:
       installment = calculateInstallment(price, deposit, length, interest)
-      return !isNaN(installment)
-        ? {
-            [k.INSTALLMENT]: installment,
-            [k.TOTAL]: calculateTotal(deposit, length, installment),
-          }
-        : { error: true }
+      return {
+        [k.INSTALLMENT]: installment,
+        [k.TOTAL]: calculateTotal(deposit, length, installment),
+      }
 
     case k.INTEREST:
-      try {
-        return {
-          [k.INTEREST]: calculateInterest(price, deposit, length, installment),
-          [k.TOTAL]: calculateTotal(deposit, length, installment),
-        }
-      } catch {
-        return { error: true }
+      return {
+        [k.INTEREST]: calculateInterest(price, deposit, length, installment),
+        [k.TOTAL]: calculateTotal(deposit, length, installment),
       }
 
     default:
@@ -34,7 +28,9 @@ export default function calculate(mode, values) {
 
 function calculateInstallment(price, deposit, length, interest) {
   const owed = price - deposit
-  return _installment(owed, interest / 100, length)
+  const installment = _installment(owed, interest / 100, length)
+  if (isNaN(installment)) throw new Error('Installment calculation failed')
+  return installment
 }
 
 function calculateInterest(price, deposit, length, installment) {

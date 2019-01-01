@@ -7,7 +7,11 @@ const setResults = results => ({ type: SET_RESULTS, results })
 
 export const calculateResults = () => (dispatch, getState) => {
   const { mode, values } = getState()
-  const results = calculate(mode, values)
+  try {
+    var results = calculate(mode, values)
+  } catch {
+    results = 'error'
+  }
   dispatch(setResults(results))
 }
 

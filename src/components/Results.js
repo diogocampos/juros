@@ -7,7 +7,7 @@ function Results(props) {
   const { results } = props
   if (!results) return null
 
-  return !results.error ? (
+  return results !== 'error' ? (
     <ul>
       {Object.keys(results).map(name => (
         <li key={name}>
