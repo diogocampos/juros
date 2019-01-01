@@ -27,15 +27,17 @@ class Fields extends React.Component {
         onSubmit={this.handleSubmit}
         noValidate
       >
-        {fieldNames.map(name => (
-          <NumberField
-            key={name}
-            name={name}
-            value={values[name]}
-            onChange={onChange}
-            {...fieldProps[name]}
-          />
-        ))}
+        <div className="Fields-inputs">
+          {fieldNames.map(name => (
+            <NumberField
+              key={name}
+              name={name}
+              value={values[name]}
+              onChange={onChange}
+              {...fieldProps[name]}
+            />
+          ))}
+        </div>
         <div className="Fields-buttons">
           <button className="Fields-button" type="reset">
             Limpar
