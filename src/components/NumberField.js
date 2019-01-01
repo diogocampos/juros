@@ -33,7 +33,7 @@ class NumberField extends React.Component {
   }
 
   render() {
-    const { label, name, value, ...format } = this.props
+    const { name, label, value, decimals } = this.props
     return (
       <label className="NumberField">
         <span className="NumberField-label">{label}</span>
@@ -42,9 +42,9 @@ class NumberField extends React.Component {
           type="text"
           pattern="[0-9]*" // Show numeric keyboard on iOS
           inputMode="decimal" // Show numeric keyboard on Android
-          placeholder={formatNumber(0, format)}
+          placeholder={formatNumber(0, decimals)}
           name={name}
-          value={value ? formatNumber(value, format) : ''}
+          value={value ? formatNumber(value, decimals) : ''}
           onChange={this.handleChange}
           onClick={this.handleFocus}
           onFocus={this.handleFocus}
