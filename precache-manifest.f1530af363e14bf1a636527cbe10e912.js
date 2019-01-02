@@ -28,7 +28,7 @@ self.__precacheManifest = [
     "url": "./static/media/percentage.3f86fe65.svg"
   },
   {
-    "revision": "4d7b96a76f3603798145f43a5fd28952",
+    "revision": "18f81af093a67afab8cce0cf7e468fa1",
     "url": "./index.html"
   }
 ];
