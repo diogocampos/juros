@@ -20,6 +20,7 @@ body {
 
 button {
   cursor: pointer;
+  outline: none;
 }
 
 button,

@@ -33,3 +33,7 @@
   border-color: #1fc8db;
   outline: 0;
 }
+
+.NumberField-input::placeholder {
+  color: #aeb1b5;
+}
