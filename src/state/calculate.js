@@ -56,7 +56,7 @@ function calculateInterest(price, deposit, length, installment) {
 }
 
 function calculateTotal(deposit, length, installment) {
-  return deposit + length * installment
+  return deposit + length * +installment.toFixed(2)
 }
 
 function _installment(owed, interestRate, length) {
