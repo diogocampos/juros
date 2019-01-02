@@ -8,31 +8,41 @@ import { fieldProps } from '../constants'
 
 function Results(props) {
   const { results } = props
-  if (!results) return null
-
   return (
     <div className={classNames('Results', results === 'error' && 'error')}>
-      {results !== 'error' ? (
-        Object.keys(results).map(name => (
-          <Result key={name} {...fieldProps[name]} value={results[name]} />
-        ))
+      {!results ? (
+        <Message text="Preencha os valores e clique em Calcular." />
+      ) : results === 'error' ? (
+        <Message title="Erro" text="Verifique os valores preenchidos." />
       ) : (
-        <Result label="Erro" value="Verifique os valores preenchidos." />
+        Object.keys(results).map(name => (
+          <Number key={name} {...fieldProps[name]} value={results[name]} />
+        ))
       )}
     </div>
   )
 }
 
-function Result(props) {
+function Number(props) {
   const { label, prefix, value, decimals, suffix } = props
   return (
-    <div className="Results-result">
+    <div className="Results-item">
       <h3 className="Results-label">{label}</h3>
-      <p className="Results-value">
+      <p className="Results-content">
         {prefix && <span className="Results-unit">{prefix}</span>}
-        {typeof value === 'number' ? formatNumber(value, decimals) : value}
+        {formatNumber(value, decimals)}
         {suffix && <span className="Results-unit">{suffix}</span>}
       </p>
+    </div>
+  )
+}
+
+function Message(props) {
+  const { title, text } = props
+  return (
+    <div className="Results-item">
+      {title && <h3 className="Results-label">{title}</h3>}
+      <p className="Results-content is-message">{text}</p>
     </div>
   )
 }

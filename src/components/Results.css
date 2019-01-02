@@ -2,37 +2,38 @@
   max-width: 720px;
   margin: 10px;
   border-radius: 3px;
-  background-color: #1fc8db;
-  color: white;
+  border: 1px solid #1fc8db;
+  color: #1fc8db;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .Results.error {
-  background-color: #ed6c63;
+  border-color: #ed6c63;
+  color: #ed6c63;
 }
 
-.Results-result {
+.Results-item {
   padding: 16px 20px;
   text-align: center;
 }
 
 .Results-label {
-  margin: 0;
+  margin: 0 0 10px 0;
   font-size: 21px;
 }
 
-.Results-value {
-  margin: 10px 0 0 0;
+.Results-content {
+  margin: 0;
   font-size: 36px;
 }
 
-.Results.error .Results-value {
+.Results-content.is-message {
   font-size: 18px;
 }
 
 .Results-label,
 .Results-unit {
-  opacity: 0.8;
+  opacity: 0.7;
 }
