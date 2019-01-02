@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "407afb2148c4c88075ee",
-    "url": "./static/css/main.b8cb3dd6.chunk.css"
+    "revision": "8e1872f34a8a1a1e8901",
+    "url": "./static/css/main.fbfb3ad4.chunk.css"
   },
   {
-    "revision": "407afb2148c4c88075ee",
-    "url": "./static/js/main.407afb21.chunk.js"
+    "revision": "8e1872f34a8a1a1e8901",
+    "url": "./static/js/main.8e1872f3.chunk.js"
   },
   {
     "revision": "8b8e1e00e6b900a3852a",
@@ -28,7 +28,7 @@ self.__precacheManifest = [
     "url": "./static/media/percentage.3f86fe65.svg"
   },
   {
-    "revision": "ef175ec03baf6ddd0f79d8ba0772499a",
+    "revision": "4d7b96a76f3603798145f43a5fd28952",
     "url": "./index.html"
   }
 ];
