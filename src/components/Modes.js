@@ -3,24 +3,26 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import './Modes.css'
+import { DollarSignIcon, PercentageIcon } from './icons'
 import { INSTALLMENT, INTEREST } from '../constants'
 import { actions } from '../state'
 
 const modes = [
-  { mode: INTEREST, label: 'Juros' },
-  { mode: INSTALLMENT, label: 'Parcela' },
+  { mode: INTEREST, label: 'Juros', Icon: PercentageIcon },
+  { mode: INSTALLMENT, label: 'Parcela', Icon: DollarSignIcon },
 ]
 
 function Modes(props) {
   const { mode: currentMode, onChange } = props
   return (
     <div className="Modes">
-      {modes.map(({ mode, label }) => (
+      {modes.map(({ mode, label, Icon }) => (
         <button
           key={mode}
           className={classNames('Modes-mode', mode === currentMode && 'active')}
           onClick={() => mode !== currentMode && onChange(mode)}
         >
+          <Icon className="Modes-icon" />
           {label}
         </button>
       ))}

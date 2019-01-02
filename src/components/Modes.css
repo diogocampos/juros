@@ -14,6 +14,8 @@
   background-color: transparent;
   color: white;
   font-size: 18px;
+  display: flex;
+  align-items: center;
 }
 
 .Modes-mode.active {
@@ -22,4 +24,11 @@
 
 .Modes-mode:not(.active):not(:hover) {
   opacity: 0.5;
+}
+
+.Modes-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  fill: white;
 }
