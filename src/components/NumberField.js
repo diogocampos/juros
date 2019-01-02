@@ -4,7 +4,7 @@ import './NumberField.css'
 import { formatNumber, parseDigits } from './format'
 import * as icons from './icons'
 
-const MAX_DIGITS = 16
+const MAX_DIGITS = 15
 
 class NumberField extends React.Component {
   inputRef = React.createRef()

@@ -1,7 +1,6 @@
 .Fields {
   width: 100%;
   max-width: 768px;
-  padding: 10px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,18 +12,14 @@
   justify-content: space-evenly;
 }
 
-.Fields-buttons {
-  padding-top: 15px;
-}
-
 .Fields-button {
-  height: 40px;
-  margin: 5px;
+  height: 48px;
+  margin: 10px;
   border: 1px solid #d3d6db;
   border-radius: 3px;
-  padding: 7px 14px;
+  padding: 0 21px;
   background-color: white;
-  font-size: 18px;
+  font-size: 22px;
 }
 
 .Fields-button:focus,
