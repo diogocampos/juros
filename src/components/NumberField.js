@@ -2,6 +2,7 @@ import React from 'react'
 
 import './NumberField.css'
 import { formatNumber, parseDigits } from './format'
+import * as icons from './icons'
 
 const MAX_DIGITS = 16
 
@@ -33,24 +34,28 @@ class NumberField extends React.Component {
   }
 
   render() {
-    const { name, label, value, decimals } = this.props
+    const { name, label, icon, value, decimals } = this.props
+    const Icon = icons[icon]
     return (
       <label className="NumberField">
         <span className="NumberField-label">{label}</span>
-        <input
-          className="NumberField-input"
-          type="text"
-          pattern="[0-9]*" // Show numeric keyboard on iOS
-          inputMode="decimal" // Show numeric keyboard on Android
-          placeholder={formatNumber(0, decimals)}
-          name={name}
-          value={value ? formatNumber(value, decimals) : ''}
-          onChange={this.handleChange}
-          onClick={this.handleFocus}
-          onFocus={this.handleFocus}
-          onKeyDown={this.handleKeyDown}
-          ref={this.inputRef}
-        />
+        <div className="NumberField-control">
+          <input
+            className="NumberField-input"
+            type="text"
+            pattern="[0-9]*" // Show numeric keyboard on iOS
+            inputMode="decimal" // Show numeric keyboard on Android
+            placeholder={formatNumber(0, decimals)}
+            name={name}
+            value={value ? formatNumber(value, decimals) : ''}
+            onChange={this.handleChange}
+            onClick={this.handleFocus}
+            onFocus={this.handleFocus}
+            onKeyDown={this.handleKeyDown}
+            ref={this.inputRef}
+          />
+          {Icon && <Icon className="NumberField-icon" />}
+        </div>
       </label>
     )
   }

@@ -11,10 +11,34 @@ export const fieldNamesByMode = {
 }
 
 export const fieldProps = {
-  [DEPOSIT]: { label: 'Entrada', prefix: '$' },
-  [INSTALLMENT]: { label: 'Valor da parcela', prefix: '$' },
-  [INTEREST]: { label: 'Taxa de juros', suffix: '%' },
-  [LENGTH]: { label: 'Número de parcelas', decimals: 0 },
-  [PRICE]: { label: 'Valor à vista', prefix: '$' },
-  [TOTAL]: { label: 'Total a prazo', prefix: '$' },
+  [DEPOSIT]: {
+    label: 'Entrada',
+    prefix: '$',
+    icon: 'DollarSignIcon',
+  },
+  [INSTALLMENT]: {
+    label: 'Valor da parcela',
+    prefix: '$',
+    icon: 'DollarSignIcon',
+  },
+  [INTEREST]: {
+    label: 'Taxa de juros',
+    suffix: '%',
+    icon: 'PercentageIcon',
+  },
+  [LENGTH]: {
+    label: 'Número de parcelas',
+    decimals: 0,
+    icon: 'CalendarAltIcon',
+  },
+  [PRICE]: {
+    label: 'Valor à vista',
+    prefix: '$',
+    icon: 'DollarSignIcon',
+  },
+  [TOTAL]: {
+    label: 'Total a prazo',
+    prefix: '$',
+    icon: 'DollarSignIcon',
+  },
 }
