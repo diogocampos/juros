@@ -1,3 +1,5 @@
+# [<img src="public/icon-192.png" height="24" width="24" /> git.io/juros](https://git.io/juros)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
