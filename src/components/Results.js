@@ -14,11 +14,7 @@ function Results(props) {
     <div className={classNames('Results', results === 'error' && 'error')}>
       {results !== 'error' ? (
         Object.keys(results).map(name => (
-          <Result
-            key={name}
-            {...fieldProps[name]}
-            value={formatNumber(results[name], fieldProps[name].decimals)}
-          />
+          <Result key={name} {...fieldProps[name]} value={results[name]} />
         ))
       ) : (
         <Result label="Erro" value="Verifique os valores preenchidos." />
@@ -28,13 +24,13 @@ function Results(props) {
 }
 
 function Result(props) {
-  const { label, prefix, value, suffix } = props
+  const { label, prefix, value, decimals, suffix } = props
   return (
     <div className="Results-result">
       <h3 className="Results-label">{label}</h3>
       <p className="Results-value">
         {prefix && <span className="Results-unit">{prefix}</span>}
-        {value}
+        {typeof value === 'number' ? formatNumber(value, decimals) : value}
         {suffix && <span className="Results-unit">{suffix}</span>}
       </p>
     </div>
